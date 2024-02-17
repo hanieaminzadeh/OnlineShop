@@ -1,0 +1,38 @@
+﻿@page
+@model OnlineShop.Pages.AddProductModel
+@{
+}
+
+
+<form method="post">
+    <div>
+        <label asp-for="Product.Name" for="name">Name : </label>
+        <input type="text" id="name" name="Name" />
+    </div>
+    <div>
+        <label asp-for="Product.Title" for="Title">Title : </label>
+        <input type="text" id="Title" name="Title" />
+    </div>
+    <div>
+        <label asp-for="Product.Description" for="Description">Description : </label>
+        <input type="text" id="Description" name="Description" />
+    </div>
+    <div>
+        <label asp-for="Product.Price" for="price">Price : </label>
+        <input type="text" id="price" name="Price" />
+    </div>
+    <div>
+        <label asp-for="Product.Color" for="Color">Color : </label>
+        <input type="text" id="Color" name="Color" />
+    </div>
+    <div>
+        <label asp-for="Product.CategoryId" for="CategoryId">CategoryId : </label>
+        <input type="text" id="CategoryId" name="CategoryId" />
+    </div>
+    <button type="submit" class="btn btn-outline-primary">Add</button>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

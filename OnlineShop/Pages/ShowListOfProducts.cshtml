@@ -1,0 +1,46 @@
+﻿@page
+@model OnlineShop.Pages.ShowListOfProductsModel
+@{
+}
+<h2>Products</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Color</th>
+            <th scope="col">categoryId</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <th scope="row">@product.Id</th>
+                <td>@product.Name</td>
+                <td>@product.Title</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+                <td>@product.Color</td>
+                <td>@product.CategoryId</td>
+                <td>
+                    <form asp-page="DeleteProduct" asp-page-handler="OnPost" method="post">
+                        <button type="submit" asp-page="DeleteProduct" asp-page-handler="GetId" asp-route-id="@product.Id" class="btn btn-outline-danger">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <a asp-page="EditProduct" asp-page-handler="OnGet" asp-route-id="@product.Id" class="btn btn-outline-warning">Edit</a>
+                </td>
+            </tr>
+        }
+</table>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

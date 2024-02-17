@@ -1,0 +1,38 @@
+﻿@page
+@model OnlineShop.Pages.DeleteProductModel
+@{
+}
+
+<h2>All Products</h2>
+@* <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">categoryId</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <th scope="row">@product.Id</th>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.CategoryId</td>
+                <td>
+                    <form asp-page="DeleteProduct" asp-page-handler="OnPost" method="post">
+                        <input asp-for="SelecedProduct.Id" type="hidden" value="@product.Id" />
+                        <button type="submit" asp-page="DeleteProduct" asp-page-handler="GetId" asp-route-id="@product.Id" class="btn btn-outline-danger">Delete</button>
+                    </form>
+                 </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+} *@
